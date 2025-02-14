@@ -92,27 +92,7 @@ const Study_Materials = [
     {
         "link": "http://sch73.minsk.edu.by/ru/main.aspx?guid=87801",
         "text": "Методические разработки учебных занятий, видеоуроки © Средняя школа №73 г. Минска"
-    },
-    {
-        "link": "",
-        "text": ""
-    },
-    {
-        "link": "",
-        "text": ""
-    },
-    {
-        "link": "",
-        "text": ""
-    },
-    {
-        "link": "",
-        "text": ""
-    },
-    {
-        "link": "",
-        "text": ""
-    },
+    }
 ]
 
 const Scenarios = [
