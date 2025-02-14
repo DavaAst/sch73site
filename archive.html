@@ -1,0 +1,356 @@
+  <!--</section>
+	<style>
+	* {
+  box-sizing: border-box;
+}
+:root{
+  --clr-primary: #6b7280;
+  --clr-secondary: rgb(8, 47, 73);
+  --duration: 400ms;
+}
+
+input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  align-items: center;
+	margin: 3%;
+}
+
+.wrapper:has(article>input:checked){
+  --btn-close-x: 0;
+  --btn-close-opacity: 1;
+  --btn-close-delay: calc(var(--duration) * 3);
+}
+article {
+  --article-height: 130px;
+  --article-width: 130px;
+  --header-clip: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  --label-bg: rgba(255 255 255 / .75);
+  
+  background: white;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  width: var(--article-width);
+  height: var(--article-height);
+  transition: var(--duration) ease-out;
+  border: 1px solid rgba(255 255 255 / .15);
+}
+article:has(input:checked) {
+  --article-height: 430px;
+  --article-width: 260px;
+  
+  
+  --header-clip: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  --header-delay: calc(var(--duration) * .5);
+
+  --label-y: 115px;
+  --label-x: 1rem;
+  --label-bg: var(--clr-secondary);
+  --label-rotate: 45deg;
+  --label-txt: white;
+  --label-delay: calc(var(--duration) * 0);
+  
+  --label-open-opacity: 0;
+  --label-close-opacity: 1;
+  --label-open-enents: none;
+  --label-close-enents: auto;
+  
+  --title-y: 0;
+  --title-x: 1rem;
+
+  --title-f-size: 1.2rem;
+  --title-clr: var(--clr-secondary);
+  --title-bg: linear-gradient(transparent, rgba(0 0 0 / 0));
+  --title-delay: calc(var(--duration) * 1);
+  
+  --section-opacity: 1;
+  --section-y: 0;
+  --section-delay: calc(var(--duration) * 2);
+}
+		article{
+			width: 520px;
+			height: 400px;
+		}
+article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+article > header {
+  height: 300px;
+  position: relative;
+}
+
+article > header > [data-img] {
+  position: relative;
+  height: 100%;
+  transition: clip-path var(--duration) ease-in-out;
+  transition-delay: var(--header-delay,0ms);
+  clip-path: var(--header-clip);
+  isolation: isolate;
+}
+article [data-img]::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+background-image: var(--title-bg,linear-gradient(transparent 55%, rgba(0 0 0 / .75)));
+  z-index: 1;
+  transition: background-image var(--duration) ease-in-out;
+}
+
+article > header [data-labels]{
+  position: absolute;
+  top: var(--label-y, 0.5rem);
+  right: var(--label-x,0.5rem);
+
+  font-size: 1.5rem;
+  line-height: 1;
+  background: var(--label-bg);
+  color: var(--label-txt, #818cf8);
+  border-radius: 9999px;
+  width: 2rem;
+  height: 2rem;
+  aspect-ratio: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-content: center;
+  transition: all 0.5s;
+  transition-delay: var(--label-delay, 0ms);
+  rotate: var(--label-rotate, 0deg);
+  scale: var(--label-scale, 1);
+  z-index: 9;
+
+}
+article > header [data-labels] > label{
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  grid-area: 1/1;
+  transition: 300ms ease-in-out;
+  transition-delay: var(--label-delay,0ms);
+  transform-origin: center;
+  opacity: var(--label-open-opacity,1);
+  pointer-events: var(--label-open-enents,auto);
+}
+/* close button - actually a label for the user-0 hidden radio button */
+article > header [data-labels] > label:last-child{
+  opacity: var(--label-close-opacity,0);
+  pointer-events: var(--label-close-enents,none);
+  rotate: var(--label-close-rotate, 0deg);
+}
+
+article > header [data-labels]:hover{
+  --label-bg: var(--clr-secondary);
+  --label-txt: white;
+  /*--label-scale: 1.15;*/
+  --label-close-rotate: 90deg;
+}
+
+article > section {
+  padding: 0 1rem 1rem;
+  opacity: var(--section-opacity, 0);
+  transform: translateY(var(--section-y, 4rem));
+  transition: all 0.3s;
+  transition-delay: var(--section-delay, 0ms);
+}
+
+article  h2 {
+  position: relative;
+  color: var(--title-clr,white);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  top: var(--title-y,-4.25rem);
+  left: var(--title-x,.5rem);
+
+  font-size: var(--title-f-size, .8rem);
+  transition: var(--duration) ease-in-out;
+  transition-delay: var(--title-delay, 0ms);
+}
+
+article > section > h3 {
+  color: var(--clr-secondary);
+  margin-block: 1rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+article > section > p {
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+.gallery {
+  padding-bottom: 1rem;
+  overflow-x: auto;
+  display: grid;
+  gap: 0.5rem;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+}
+
+.gallery > div {
+  width: 5rem;
+  border-radius: 8px;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.gallery img {
+  transition: transform 2s;
+  transform: scale(1.15)2
+}
+.gallery img:hover {
+    transform: scale(1);
+}
+	</style>
+
+   <div class="wrapper">
+
+  <input type="radio" name="user" id="user-0">
+  <article id="article-1">
+    <input type="radio" name="user" id="user-1">
+    <header>
+      <div data-img>
+        <img src="https://i.pravatar.cc/300?img=26" alt="Sarah Jane">
+      </div>
+      <div data-labels>
+        <label for="user-1" aria-label="more info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+          </svg>
+
+        </label>
+        <label for="user-0" role="close" title="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 5l0 14" />
+            <path d="M5 12l14 0" />
+          </svg>
+        </label>
+      </div>
+    </header>
+    <h2>Sarah Jane</h2>
+    <section>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam esse consequatur natus mollitia nihil.
+      </p>
+
+      <h3>Albums</h3>
+      <div class="gallery">
+        <div><img src="https://picsum.photos/id/125/80/80" loading="lazy" alt="album-1"></div>
+        <div><img src="https://picsum.photos/id/254/80/80" loading="lazy" alt="album-2"></div>
+        <div><img src="https://picsum.photos/id/114/80/80" loading="lazy" alt="album-3"></div>
+        <div><img src="https://picsum.photos/id/95/80/80" loading="lazy" alt="album-4"></div>
+        <div><img src="https://picsum.photos/id/35/80/80" loading="lazy" alt="album-5"></div>
+        <div><img src="https://picsum.photos/id/147/80/80" loading="lazy" alt="album-6"></div>
+        <div><img src="https://picsum.photos/id/412/80/80" loading="lazy" alt="album-7"></div>
+      </div>
+    </section>
+  </article>
+  <article id="article-2">
+    <input type="radio" name="user" id="user-2">
+    <header>
+      <div data-img>
+        <img src="https://i.pravatar.cc/300?img=12" alt="Simon">
+      </div>
+      <div data-labels>
+        <label for="user-2" aria-label="more info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+          </svg>
+
+        </label>
+        <label for="user-0" role="close" title="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 5l0 14" />
+            <path d="M5 12l14 0" />
+          </svg>
+        </label>
+      </div>
+    </header>
+    <h2>Simón Rodriguez</h2>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam esse consequatur natus mollitia nihil.
+      </p>
+
+      <h3>Albums</h3>
+      <div class="gallery">
+        <div><img src="https://picsum.photos/id/23/80/80" loading="lazy" alt="album-1"></div>
+        <div><img src="https://picsum.photos/id/141/80/80" loading="lazy" alt="album-2"></div>
+        <div><img src="https://picsum.photos/id/126/80/80" loading="lazy" alt="album-3"></div>
+        <div><img src="https://picsum.photos/id/76/80/80" loading="lazy" alt="album-4"></div>
+        <div><img src="https://picsum.photos/id/185/80/80" loading="lazy" alt="album-5"></div>
+        <div><img src="https://picsum.photos/id/112/80/80" loading="lazy" alt="album-6"></div>
+        <div><img src="https://picsum.photos/id/83/80/80" loading="lazy" alt="album-7"></div>
+      </div>
+    </section>
+  </article>
+
+  <article id="article-3">
+    <input type="radio" name="user" id="user-3">
+    <header>
+      <div data-img>
+        <img src="https://i.pravatar.cc/300?img=13" alt="Dave">
+      </div>
+      <div data-labels>
+        <label for="user-3" aria-label="more info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+            <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+          </svg>
+
+        </label>
+        <label for="user-0" role="close" title="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 5l0 14" />
+            <path d="M5 12l14 0" />
+          </svg>
+        </label>
+      </div>
+    </header>
+    <h2>Dave Lopez</h2>
+    <section>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam esse consequatur natus mollitia nihil.
+      </p>
+
+      <h3>Albums</h3>
+      <div class="gallery">
+        <div><img src="https://picsum.photos/id/69/80/80" loading="lazy" alt="album-1"></div>
+        <div><img src="https://picsum.photos/id/132/80/80" loading="lazy" alt="album-2"></div>
+        <div><img src="https://picsum.photos/id/184/80/80" loading="lazy" alt="album-3"></div>
+        <div><img src="https://picsum.photos/id/33/80/80" loading="lazy" alt="album-4"></div>
+        <div><img src="https://picsum.photos/id/159/80/80" loading="lazy" alt="album-5"></div>
+        <div><img src="https://picsum.photos/id/223/80/80" loading="lazy" alt="album-6"></div>
+        <div><img src="https://picsum.photos/id/81/80/80" loading="lazy" alt="album-7"></div>
+      </div>
+    </section>
+  </article>
+
+</div>-->
