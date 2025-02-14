@@ -1942,3 +1942,169 @@ a {
     text-align: center;
   }
 }
+.profile{padding-bottom: 3%;}
+            .profile-card{
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 1fr;
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
+                margin-top: 3%;
+                margin-right: auto;
+                margin-left: auto;
+                width: 75%;
+                padding: 1.5%;
+                background-color: #fef5e9;
+                outline: 2px solid black;
+                outline-offset: -1em;
+            }
+            .info-text{
+                padding-right: 2%;
+            }
+            .info h3{
+                text-align: center;
+                font-size: 42px;
+            }
+            .info h4{
+                text-align: center;
+                font-size: 30px;
+            }
+            p{
+                font-size: 28px;
+            }
+            .profile-card img{
+                margin-bottom: auto;
+                margin-top: auto;
+            }
+            .profile-card br{
+                padding: 15px 0;
+            }
+            .tich-card{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
+                width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+
+            }
+            .card-2x2{
+                margin-top: 3%;
+                margin-right: auto;
+                margin-left: auto;
+                width: 65%;
+                padding: 1.5%;
+                background-color: #fef5e9;
+                outline: 2px solid black;
+                outline-offset: -1em;
+                text-align: center;
+            }
+            .tich-card img{
+                border-radius: 0px;
+                margin: auto;
+                margin-top: 4%;
+                margin-bottom: 2%;
+                width: 90%;
+            }
+            .card-2x2 h4{
+                padding-right: 1.5%;
+                padding-left: 1.5%;
+            }
+			            .container-cube {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: 75%;
+                gap: 60px;
+                margin: auto;
+            }
+
+            .container-cube a {
+                color: black;
+                text-decoration: none;
+
+                width: 30%;
+                height: 300px;
+                padding: 20px;
+                background-color: white;
+                border-radius: 20px;
+            }
+
+            .cube h2 {
+                display: block;
+                text-align: center;
+            }
+.backicon {
+  width: 60px;
+  height: 60px;
+  background-color: #d7f9fa;
+  border: 1.5px solid #d2d2d2;
+  border-radius: 100%;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+  position: center
+}
+
+.infoicon {
+  margin-top: 1%;
+  display: flex;
+  padding: 15px;
+  width: 100%;
+
+  gap: 60px;
+  align-items: center;
+}
+
+.infoicon:hover {
+  outline: 2px solid #d2d2d2;
+  border-radius: 24px;
+  background: #fcfaf2;
+}
+
+.hrefText {
+  padding-left: 15px;
+  font-size: 26px;
+  color: black;
+}
+
+main {
+  border-radius: 30px;
+  width: 600px;
+  height: 900px;
+  box-shadow: 3px 4px 9px gray;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.slides {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 1s ease;
+}
+
+/* button */
+.navigation {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.navigation button {
+  width: 125px;
+  height: 70px;
+  background-color: #fef5e9;
+  border-radius: 15px;
+  margin-left: 10px;
+  margin-top: 1%;
+  margin-bottom: 4%;
+}
