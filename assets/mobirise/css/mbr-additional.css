@@ -2543,3 +2543,79 @@ main {
   margin-top: 1%;
   margin-bottom: 4%;
 }
+#toggleButton {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        transition: 0.3s ease-in-out;
+    }
+    #toggleButton:hover{
+        background-color: #cccccc;
+    }
+    .side-menu {
+        position: fixed;
+        top: 0;
+        right: -25%;
+        width: 25%;
+        height: 100%;
+        background-color: #fef5e9;
+        color: black;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+            box-shadow: -2px 0 5px black;
+    }
+
+    .side-menu.open {
+        right: 0;
+    }
+
+    .side-menu nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-top: 60px;
+    }
+
+    .side-menu nav ul li {
+        padding: 15px 20px;
+        border-bottom: 1px solid #444;
+    }
+
+    .side-menu nav ul li a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding-left: 5%;
+        font-size: 28px;
+    }
+
+    .side-menu nav ul li a:hover {
+        color: black;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        display: none;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+    #toggleButton img{
+        width: 50px;
+        margin: auto;
+    }
