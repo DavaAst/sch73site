@@ -245,3 +245,31 @@ Scenarios.map((v, i) => {
                 </div>`.replace('{{subcontent}}', subcontent)
 
 })
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.getElementById('toggleButton');
+    const sideMenu = document.getElementById('sideMenu');
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
+
+    // Открытие/закрытие меню по клику на кнопку
+    toggleButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Предотвращаем всплытие, чтобы не закрыть меню сразу
+        sideMenu.classList.toggle('open');
+        overlay.classList.toggle('active');
+    });
+
+    // Закрытие меню по клику вне его зоны
+    overlay.addEventListener('click', function () {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('active');
+    });
+
+    // Закрытие меню при клике на ссылку (опционально)
+    sideMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+            sideMenu.classList.remove('open');
+            overlay.classList.remove('active');
+        });
+    });
+});
