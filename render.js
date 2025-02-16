@@ -245,7 +245,9 @@ Scenarios.map((v, i) => {
                 </div>`.replace('{{subcontent}}', subcontent)
 
 })
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+
+
     const toggleButton = document.getElementById('toggleButton');
     const sideMenu = document.getElementById('sideMenu');
     const overlay = document.createElement('div');
