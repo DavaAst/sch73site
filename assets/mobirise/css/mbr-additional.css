@@ -111,6 +111,20 @@ body {
     grid-template-columns: none !important;
     width: 100% !important;
   }
+
+  .side-menu.open {
+    right: 0 !important;
+  }
+  .side-menu{
+    width: 65% !important;
+    right: -65% !important;
+  }
+  .side-menu nav ul li {
+    padding: 35px 20px !important;
+  }
+  .side-menu a {
+    font-size: xxx-large !important;
+  }
 }
 
 @media (max-width: 768px) {
